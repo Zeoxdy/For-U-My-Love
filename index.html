@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanya 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#yes { background: #00c853; color: white; }
+#no { background: #d50000; color: white; }
+
+.heart {
+    position: absolute;
+    bottom: -10px;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+    <h1>Tanya 💖</h1>
+    <p id="text">I wanna ask u something… 🥺</p>
+    <button onclick="step2()">Sure 💫</button>
+</div>
+
+<script>
+
+// STEP 2 (main question)
+function step2() {
+    document.getElementById("main").innerHTML = `
+        <h1>Will u be my soulmate forever? 🥺💖</h1>
+        <button id="yes" onclick="yesClick()">YES 💍</button>
+        <button id="no" onclick="noClick()">NO 😏</button>
+    `;
+}
+
+// NO CLICK (keeps forcing yes 😭)
+function noClick() {
+    document.getElementById("main").innerHTML = `
+        <h1>plzz say yes 🥺💖</h1>
+        <button id="yes" onclick="yesClick()">OKAY YES 😭💍</button>
+    `;
+}
+
+// YES CLICK FINAL
+function yesClick() {
+    document.body.innerHTML = `
+    <div style="text-align:center; margin-top:20vh;">
+        <h1>Thank u so much for being my Swan 🦢😘</h1>
+        <p style="font-size:1.3rem;">U will my bunny forever 🐰💖</p>
+    </div>
+    `;
+
+    // hearts explosion 💖
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 200);
+}
+
+</script>
+
+</body>
+</html>
